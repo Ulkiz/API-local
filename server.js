@@ -10,16 +10,16 @@ app.use(cors());
 // Permite o servidor receber e enviar JSON
 app.use(express.json());
 
-let pets = []; // Aqui estamos armazenando os pets na memória (não em banco de dados)
+let pets = []; //pets sendo armazenados na memoria
 
 // Rota POST para salvar um pet
 app.post('/api/pets', (req, res) => {
-  const pet = req.body; // Pet recebido no corpo da requisição
-  pets.push(pet); // Adiciona o pet ao array (ou banco de dados)
-  res.status(201).json(pet); // Retorna o pet adicionado com status 201
+  const pet = req.body;
+  pets.push(pet); 
+  res.status(201).json(pet);
 });
 
-// Rota GET para buscar os pets
+//GET para buscar os pets
 app.get('/api/pets', (req, res) => {
   res.json(pets);
 });
